@@ -22,10 +22,10 @@ DBConfig.init();
 Routes.init(app, express.Router());
 // listen to https instance of app
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, 'src/index.html'));
 });
 
 const opts = {
