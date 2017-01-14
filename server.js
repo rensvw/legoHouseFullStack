@@ -12,20 +12,22 @@ import fs from 'fs';
 import RoutesConfig from './server/config/routes.conf';
 import DBConfig from './server/config/db.conf';
 import Routes from './server/routes/index';
+import path from 'path'
+import helmet from 'helmet'
+
 const io = require('socket.io')(https);
-const path = require('path');
 
 const app = express();
 
 RoutesConfig.init(app);
 DBConfig.init();
 Routes.init(app, express.Router());
+//app.use(helmet);
 // listen to https instance of app
-
-app.use(express.static(path.join(__dirname, 'src')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 const opts = {

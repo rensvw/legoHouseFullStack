@@ -1,15 +1,40 @@
-<h3>
-    Alarm System
-</h3>
-<nav>
-    <a [routerLink]="['/']">
-    Home
-  </a>
-</nav>
-<main>
-    <router-outlet></router-outlet>
-</main>
-<hr>
-<footer>
-    © 2016
-</footer>
+<md-sidenav-layout fullscreen>
+  <md-sidenav #sidenav mode="side" class="app-sidenav md-sidenav-over" (open)="list.focus()">
+    <ul #list>
+      <li> Item 1</li>
+      <li> Item 2</li>
+      <li> Item 3</li>
+    </ul>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.toggle()">
+      <md-icon>menu</md-icon>
+      </button>
+    <span style="margin-left: 10px">LegoHouse</span>
+    <span class="app-toolbar-filler"></span>
+    <button md-button router-active [routerLink]=" ['/home']">
+      home
+    </button>
+    <button md-button router-active [routerLink]=" ['/home']">
+      About
+    </button>
+    <button md-button router-active [routerLink]=" ['/home'] ">
+      Contact
+    </button>
+  </md-toolbar>
+
+  <div class="app-content">
+    <md-card>
+   
+	<router-outlet></router-outlet>
+
+    </md-card>
+  </div>
+
+  <footer> 
+    <md-toolbar color="primary">
+    
+    </md-toolbar>
+  </footer>
+</md-sidenav-layout>
