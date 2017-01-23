@@ -31,6 +31,20 @@ livingRoomValuesSchema.statics.getLivingRoomValue = (id) => {
     });
 }
 
+livingRoomValuesSchema.statics.createLivingRoomValue = (livingroom) => {
+    return new Promise((resolve, reject) => {
+        if (!_.isObject(livingroom))
+            return reject(new TypeError('Livingroom is not a valid object.'));
+
+        var _livingroom = new LivingRoom(livingroom);
+
+        _livingroom.save((err, saved) => {
+            err ? reject(err) :
+                resolve(saved);
+        });
+    });
+}
+
 livingRoomValuesSchema.statics.deleteLivingRoomValues = (id) => {
     return new Promise((resolve, reject) => {
         if (!_.isString(id))

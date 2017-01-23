@@ -4,7 +4,8 @@ export default class LivingRoomRoutes {
     static init(router) {
         router
             .route('/api/livingroom')
-            .get(LivingRoomController.getAllLivingRoomValues);
+            .get(LivingRoomController.getAllLivingRoomValues)
+            .post(LivingRoomController.createLivingRoomValue);
 
         router
             .route('/api/livingroom/:id')

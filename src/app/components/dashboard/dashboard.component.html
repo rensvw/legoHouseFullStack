@@ -1,0 +1,13 @@
+<p>
+  dashboard works!
+
+</p>
+
+ <button (click)="click()">Log</button>
+<div *ngIf="livingroomdata">
+<ul>
+  <li *ngFor="let item of livingroomdata; let i = index">
+    {{i}} - ID: "{{item._id}}"
+  </li>
+</ul>
+</div>

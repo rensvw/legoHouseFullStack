@@ -8,5 +8,11 @@ export default class LivingRoomRoutes {
         router
             .route('/api/mqtt/livingroom/lightoff')
             .get(LivingRoomController.LightOff);
+        router
+            .route('/api/mqtt/livingroom/heatingon')
+            .get(LivingRoomController.HeatingOn);
+        router
+            .route('/api/mqtt/livingroom/heatingoff')
+            .get(LivingRoomController.HeatingOff);
     }
 }

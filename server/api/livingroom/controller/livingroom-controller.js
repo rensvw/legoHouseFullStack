@@ -17,6 +17,15 @@ export default class LivingRoomController {
             .catch(error => res.status(400).json(error));
     }
 
+    static createLivingRoomValue(req, res) {
+        let _livingroom = req.body;
+
+        LivingRoomDAO
+            .createLivingRoomValue(_livingroom)
+            .then(livingroom => res.status(201).json(livingroom))
+            .catch(error => res.status(400).json(error));
+  }
+
     static deleteLivingRoomValues(req, res) {
         let _id = req.params.id;
 

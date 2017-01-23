@@ -11,16 +11,19 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
 // Components
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
+import { ApiService } from './services/api/api.service';
 
 // Routing
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    DashboardComponent,
   ],
   imports: [
     FlexLayoutModule.forRoot(),
@@ -33,7 +36,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     RouterModule.forRoot(rootRouterConfig, { useHash: true }),
   ],
   providers: [
-
+    ApiService
   ],
   bootstrap: [ AppComponent ]
 })
